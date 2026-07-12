@@ -700,59 +700,24 @@
     })();
   </script>
 
-  <!-- ── LAUNCH COUNTDOWN BANNER (two-phase: pre-launch → trial week) ── -->
+  <!-- ── LAUNCH ACCESS STATUS BANNER ── -->
   <div id="launch-banner" style="
-    background: linear-gradient(90deg, rgba(61,220,151,0.08) 0%, rgba(61,220,151,0.04) 100%);
-    border-bottom: 1px solid rgba(61,220,151,0.2);
+    background: linear-gradient(90deg, rgba(231,183,95,0.13) 0%, rgba(61,220,151,0.05) 100%);
+    border-bottom: 1px solid rgba(231,183,95,0.28);
     padding: 10px 24px;
     display: flex; align-items: center; justify-content: center; gap: 14px;
     flex-wrap: wrap; text-align: center;
   ">
-    <span id="lb-title" style="font-size:13px; color:#3ddc97; font-weight:800; letter-spacing:0.06em; text-transform:uppercase;">🎉 Launch Week — Free For Everyone</span>
-    <span id="lb-sub" style="font-size:13px; color:#c9d2ce; font-weight:500;">— 7-day free trial · full access · no card needed.</span>
+    <span id="lb-title" style="font-size:13px; color:#e7b75f; font-weight:800; letter-spacing:0.06em; text-transform:uppercase;">🔒 Free Trial Waitlist Closed</span>
+    <span id="lb-sub" style="font-size:13px; color:#c9d2ce; font-weight:500;">15 out of 15 founding trials started today.</span>
     <span id="countdown-badge" style="
-      background: rgba(61,220,151,0.12); border: 1px solid rgba(61,220,151,0.3);
+      background: rgba(231,183,95,0.14); border: 1px solid rgba(231,183,95,0.34);
       border-radius: 100px; padding: 3px 14px;
-      font-size: 12px; font-weight: 800; color: #3ddc97; letter-spacing: 0.05em;
+      font-size: 12px; font-weight: 800; color: #e7b75f; letter-spacing: 0.05em;
       white-space: nowrap;
-    ">⏱ Loading…</span>
-    <span id="lb-tail" style="font-size:12px; color:#8f9a95;"></span>
+    ">Locked until 19 July</span>
+    <span id="lb-tail" style="font-size:12px; color:#8f9a95;">Next access opens 19 July.</span>
   </div>
-  <script>
-    (function() {
-      // Trial week: Sunday 12 July 2026 00:00 UK → Sunday 19 July 2026 00:00 UK
-      var start = new Date('2026-07-12T00:00:00+01:00').getTime();
-      var end   = new Date('2026-07-19T00:00:00+01:00').getTime();
-      function fmt(diff) {
-        var d = Math.floor(diff / 86400000);
-        var h = Math.floor((diff % 86400000) / 3600000);
-        var m = Math.floor((diff % 3600000) / 60000);
-        return d + 'd ' + h + 'h ' + m + 'm';
-      }
-      function tick() {
-        var now = Date.now();
-        var banner = document.getElementById('launch-banner');
-        var badge = document.getElementById('countdown-badge');
-        var title = document.getElementById('lb-title');
-        var tail = document.getElementById('lb-tail');
-        if (!banner || !badge) return;
-        if (now < start) {
-          title.textContent = '🎉 Launch Week Incoming — Free For Everyone';
-          badge.textContent = '⏱ Starts in ' + fmt(start - now);
-          tail.textContent = 'Sunday 12 July — set a reminder.';
-        } else if (now < end) {
-          title.textContent = '🟢 Launch Week LIVE — Free For Everyone';
-          badge.textContent = '⏱ Ends in ' + fmt(end - now);
-          tail.textContent = 'Free until 19 July — jump in now.';
-        } else {
-          banner.style.display = 'none';
-          return;
-        }
-      }
-      tick();
-      setInterval(tick, 30000);
-    })();
-  </script>
   </div>
 
   <!-- ── HERO ── -->
@@ -761,7 +726,7 @@
     <div class="hero-content">
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
-        Live Now — MT5 Trading App
+        Founding Trial Cohort Full
       </div>
       <h1><span class="brand-name">Goldmine Sync</span><br>MT5 Control<br>From Your Phone</h1>
       <p class="hero-sub">
@@ -769,13 +734,13 @@
         and copy trades. <strong>Your full trading desk in your pocket.</strong>
       </p>
       <div class="hero-actions">
-        <a href="https://www.goldminetrading.store" target="_blank" class="btn-primary">Get Started →</a>
+        <a href="https://www.goldminetrading.store" target="_blank" class="btn-primary">Locked Until 19 July →</a>
         <a href="#features" class="btn-ghost">See Features</a>
       </div>
       <div class="hero-trust">
-        <div class="trust-item"><span class="trust-icon">✓</span> No credit card required</div>
-        <div class="trust-item"><span class="trust-icon">📱</span> Works as PWA</div>
-        <div class="trust-item"><span class="trust-icon">⚡</span> Live MT5 bridge</div>
+        <div class="trust-item"><span class="trust-icon">✓</span> 15/15 trials started</div>
+        <div class="trust-item"><span class="trust-icon">🔒</span> New accounts locked</div>
+        <div class="trust-item"><span class="trust-icon">📅</span> Reopens 19 July</div>
       </div>
     </div>
 
