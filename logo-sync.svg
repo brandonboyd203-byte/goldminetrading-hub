@@ -1,0 +1,26 @@
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark green background -->
+  <rect width="500" height="500" rx="108" fill="#081510"/>
+
+  <!-- Gold bars (top-left, stacked 3) -->
+  <!-- Bar 3 (bottom) -->
+  <rect x="52" y="236" width="134" height="40" rx="8" fill="#b8901c"/>
+  <rect x="52" y="236" width="134" height="16" rx="8" fill="#e8c040"/>
+  <!-- Bar 2 (middle) -->
+  <rect x="62" y="190" width="124" height="40" rx="8" fill="#b8901c"/>
+  <rect x="62" y="190" width="124" height="16" rx="8" fill="#e8c040"/>
+  <!-- Bar 1 (top) -->
+  <rect x="72" y="144" width="114" height="40" rx="8" fill="#b8901c"/>
+  <rect x="72" y="144" width="114" height="16" rx="8" fill="#e8c040"/>
+  <!-- Shine -->
+  <line x1="88" y1="156" x2="172" y2="156" stroke="rgba(255,255,255,0.35)" stroke-width="3" stroke-linecap="round"/>
+  <line x1="78" y1="202" x2="174" y2="202" stroke="rgba(255,255,255,0.35)" stroke-width="3" stroke-linecap="round"/>
+  <line x1="68" y1="248" x2="174" y2="248" stroke="rgba(255,255,255,0.35)" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- GS — bright green, right side -->
+  <text x="206" y="282" font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="156" fill="#00e676" letter-spacing="-4">GS</text>
+
+  <!-- SYNC pill -->
+  <rect x="132" y="332" width="236" height="62" rx="31" fill="none" stroke="#00e676" stroke-width="5"/>
+  <text x="250" y="375" text-anchor="middle" font-family="-apple-system, 'SF Pro Display', Arial, sans-serif" font-weight="800" font-size="28" fill="#00e676" letter-spacing="7">SYNC</text>
+</svg>

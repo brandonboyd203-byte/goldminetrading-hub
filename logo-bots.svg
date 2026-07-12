@@ -1,0 +1,39 @@
+<svg width="1540" height="820" viewBox="0 0 1540 820" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Black background -->
+  <rect width="1540" height="820" fill="#050505"/>
+
+  <!-- ═══ ISOMETRIC GOLD BARS ═══ -->
+
+  <!-- Bottom bar (front-most) -->
+  <polygon points="185,508 425,508 475,453 235,453" fill="#d8d8d8"/>
+  <rect x="185" y="508" width="240" height="90" fill="#ffffff"/>
+  <polygon points="425,508 475,453 475,543 425,598" fill="#b0b0b0"/>
+  <line x1="196" y1="524" x2="414" y2="524" stroke="#a8a8a8" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Middle bar -->
+  <polygon points="145,393 385,393 435,338 195,338" fill="#d8d8d8"/>
+  <rect x="145" y="393" width="240" height="90" fill="#ffffff"/>
+  <polygon points="385,393 435,338 435,428 385,483" fill="#b0b0b0"/>
+  <line x1="156" y1="409" x2="374" y2="409" stroke="#a8a8a8" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Top bar (back-most) -->
+  <polygon points="105,278 345,278 395,223 155,223" fill="#d8d8d8"/>
+  <rect x="105" y="278" width="240" height="90" fill="#ffffff"/>
+  <polygon points="345,278 395,223 395,313 345,368" fill="#b0b0b0"/>
+  <line x1="116" y1="294" x2="334" y2="294" stroke="#a8a8a8" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- ═══ GOLDMINE TEXT ═══ -->
+  <text x="535" y="490"
+    font-family="Impact, 'Arial Black', 'Helvetica Neue', Arial, sans-serif"
+    font-weight="900"
+    font-size="240"
+    fill="#ffffff">GOLDMINE</text>
+
+  <!-- ═══ ROBOT above the I ═══ -->
+  <circle cx="1386" cy="252" r="46" fill="#ffffff"/>
+  <rect x="1346" y="235" width="29" height="23" rx="4" fill="#050505"/>
+  <rect x="1398" y="235" width="29" height="23" rx="4" fill="#050505"/>
+  <rect x="1357" y="262" width="59" height="12" rx="4" fill="#050505"/>
+  <rect x="1383" y="179" width="8" height="30" rx="3" fill="#ffffff"/>
+  <circle cx="1387" cy="166" r="13" fill="#ffffff"/>
+</svg>
