@@ -1,0 +1,239 @@
+{
+  "generatedAt": "2026-07-25T19:51:24.086660+00:00",
+  "candidate": "GoldmineFlipPyramid_XAU_v3_22",
+  "startingBalance": 5000.0,
+  "classification": {
+    "flip": "finalBalance >= 100000.0",
+    "loss": "finalBalance < 5000.0",
+    "ruin": "finalBalance <= 2500.0"
+  },
+  "realTicks": {
+    "windows": 79,
+    "campaigns": 5,
+    "noTrade": 74,
+    "flips": 1,
+    "positive": 5,
+    "losing": 0,
+    "ruin": 0,
+    "campaignFinals": [
+      5157.04,
+      5159.6,
+      5152.6,
+      109835.8,
+      5708.2
+    ],
+    "bestFinal": 109835.8,
+    "worstFinal": 5152.6,
+    "meanCampaignFinal": 26202.648,
+    "aggregateIndependentWeekNet": 106013.24,
+    "worstMinEquity": 3446.0,
+    "worstMinMarginLevel": 118.94,
+    "exitReasons": {
+      "BROKER_STOP_LOSS": 3,
+      "CAMPAIGN_1000P_TARGET": 1,
+      "SECURED_SCOUT_TIMEOUT": 1
+    }
+  },
+  "m1OhlcStressCampaigns": {
+    "windows": 5,
+    "campaigns": 5,
+    "noTrade": 0,
+    "flips": 1,
+    "positive": 2,
+    "losing": 3,
+    "ruin": 0,
+    "campaignFinals": [
+      4854.0,
+      4960.2,
+      4812.6,
+      109121.4,
+      5494.8
+    ],
+    "bestFinal": 109121.4,
+    "worstFinal": 4812.6,
+    "meanCampaignFinal": 25848.6,
+    "aggregateIndependentWeekNet": 104243.0,
+    "worstMinEquity": 3344.0,
+    "worstMinMarginLevel": 149.47,
+    "exitReasons": {
+      "BROKER_STOP_LOSS": 3,
+      "CAMPAIGN_1000P_TARGET": 1,
+      "SECURED_SCOUT_TIMEOUT": 1
+    }
+  },
+  "crossEngineCampaigns": [
+    {
+      "week": 37,
+      "start": "2025-09-29",
+      "realTicksFinal": 5157.04,
+      "m1OhlcFinal": 4854.0,
+      "delta": -303.03999999999996,
+      "realExit": "BROKER_STOP_LOSS",
+      "stressExit": "BROKER_STOP_LOSS",
+      "realMaxLots": 2,
+      "stressMaxLots": 2,
+      "realMinEquity": 3968,
+      "stressMinEquity": 3968
+    },
+    {
+      "week": 52,
+      "start": "2026-01-12",
+      "realTicksFinal": 5159.6,
+      "m1OhlcFinal": 4960.2,
+      "delta": -199.40000000000055,
+      "realExit": "BROKER_STOP_LOSS",
+      "stressExit": "BROKER_STOP_LOSS",
+      "realMaxLots": 2,
+      "stressMaxLots": 2,
+      "realMinEquity": 3990,
+      "stressMinEquity": 3990
+    },
+    {
+      "week": 58,
+      "start": "2026-02-23",
+      "realTicksFinal": 5152.6,
+      "m1OhlcFinal": 4812.6,
+      "delta": -340.0,
+      "realExit": "BROKER_STOP_LOSS",
+      "stressExit": "BROKER_STOP_LOSS",
+      "realMaxLots": 2,
+      "stressMaxLots": 2,
+      "realMinEquity": 4092,
+      "stressMinEquity": 4092
+    },
+    {
+      "week": 63,
+      "start": "2026-03-30",
+      "realTicksFinal": 109835.8,
+      "m1OhlcFinal": 109121.4,
+      "delta": -714.4000000000087,
+      "realExit": "CAMPAIGN_1000P_TARGET",
+      "stressExit": "CAMPAIGN_1000P_TARGET",
+      "realMaxLots": 20.2,
+      "stressMaxLots": 20.2,
+      "realMinEquity": 3446,
+      "stressMinEquity": 3344
+    },
+    {
+      "week": 68,
+      "start": "2026-05-04",
+      "realTicksFinal": 5708.2,
+      "m1OhlcFinal": 5494.8,
+      "delta": -213.39999999999964,
+      "realExit": "SECURED_SCOUT_TIMEOUT",
+      "stressExit": "SECURED_SCOUT_TIMEOUT",
+      "realMaxLots": 2,
+      "stressMaxLots": 2,
+      "realMinEquity": 4052,
+      "stressMinEquity": 4052
+    }
+  ],
+  "monteCarloCampaignAttempts": {
+    "attemptsPerTrial": 12,
+    "simulations": 200000,
+    "engineSelection": "50% MT5 real ticks, 50% MT5 1-minute OHLC",
+    "probabilityAtLeastOneFlip": 0.931205,
+    "expectedFlips": 2.395585,
+    "expectedLosingAttempts": 3.60695,
+    "probabilityMoreThanFourLosses": 0.277395,
+    "probabilityAtLeastOneObservedRuin": 0.0,
+    "medianAverageTerminalBalance": 22618.92,
+    "averageTerminalBalanceP05": 5210.349999999999,
+    "averageTerminalBalanceP95": 48605.77
+  },
+  "monteCarloCalendarWeeks": {
+    "calendarWeeksPerTrial": 12,
+    "simulations": 200000,
+    "probabilityAtLeastOneCampaign": 0.54367,
+    "expectedCampaigns": 0.75936,
+    "probabilityAtLeastOneFlip": 0.141375,
+    "expectedFlips": 0.151505,
+    "probabilityAtLeastOneLosingCampaign": 0.205785
+  },
+  "bayesianUncertainty": {
+    "weeklyCampaignRate": {
+      "observedSuccesses": 5,
+      "observedFailures": 74,
+      "posteriorMean": 0.07403796125631168,
+      "credible90": [
+        0.033290405470160746,
+        0.12692236616017058
+      ],
+      "credible95": [
+        0.02814311514749462,
+        0.1398940407292253
+      ]
+    },
+    "conditionalFlipRate": {
+      "observedSuccesses": 1,
+      "observedFailures": 4,
+      "posteriorMean": 0.28633874090223255,
+      "credible90": [
+        0.06333048642865344,
+        0.5828756422035934
+      ],
+      "credible95": [
+        0.04363796183688984,
+        0.6402879219313838
+      ]
+    },
+    "stressModelLossRate": {
+      "observedSuccesses": 3,
+      "observedFailures": 2,
+      "posteriorMean": 0.5711394314409094,
+      "credible90": [
+        0.27013670862600364,
+        0.8465205054299709
+      ],
+      "credible95": [
+        0.22314046513626928,
+        0.8817234646528416
+      ]
+    },
+    "observedRuinRate": {
+      "observedSuccesses": 0,
+      "observedFailures": 5,
+      "posteriorMean": 0.14338034927594573,
+      "credible90": [
+        0.008560472634987737,
+        0.3954193252119371
+      ],
+      "credible95": [
+        0.004297948187180886,
+        0.4613541042440828
+      ]
+    },
+    "impliedWeeklyFlipRate": {
+      "posteriorMean": 0.021210353526627264,
+      "credible90": [
+        0.003706223414846824,
+        0.05079346794813643
+      ],
+      "credible95": [
+        0.00252127723684931,
+        0.059873337897048046
+      ]
+    },
+    "probabilityAtLeastOneFlipIn12Weeks": {
+      "posteriorMean": 0.21534118886378129,
+      "credible90": [
+        0.043579206046528984,
+        0.4650309978444641
+      ],
+      "credible95": [
+        0.02983928156997051,
+        0.5233095690652962
+      ]
+    }
+  },
+  "verdict": {
+    "state": "RESEARCH_CANDIDATE_NOT_FORWARD_APPROVED",
+    "reason": "The same large flip survived both MT5 models, but only five qualifying campaigns were observed. Three of five campaigns lost money under the stress model. No observed ruin is not enough evidence to claim a low ruin probability."
+  },
+  "limitations": [
+    "The five cross-engine outcomes are paired, not ten independent campaigns.",
+    "Weekly sampling with replacement does not model volatility clustering.",
+    "Tester fills, spread, slippage, and broker execution can differ from forward trading.",
+    "The very large mean is dominated by one winner and is not a stable expectation."
+  ]
+}

@@ -51,6 +51,9 @@
     .evidence th,.evidence td { padding:8px 10px; border-bottom:1px solid #1b2320; text-align:right; white-space:nowrap; }
     .evidence th { position:sticky; top:0; z-index:1; background:#121715; color:var(--muted); font-size:11px; text-transform:uppercase; }
     .evidence th:nth-child(-n+3),.evidence td:nth-child(-n+3) { text-align:left; }
+    .analysis-note { border:1px solid #6b5720; background:#18150c; color:#e7d69e; padding:11px 12px;
+      border-radius:6px; margin:0 0 12px; }
+    .analysis-note strong { color:var(--gold); }
     .status { display:inline-block; padding:3px 6px; border-radius:4px; font-size:11px; font-weight:700; text-transform:uppercase; }
     .status.no_trade { color:var(--muted); background:#151a18; }
     .status.scratch { color:var(--gold); background:#292311; }
@@ -89,7 +92,7 @@
       <h2>RoboForex MT5 Weekly Evidence</h2>
       <div class="sub" id="roboContext"></div>
     </div>
-    <div class="evidence-verdict">No model approved for forward deployment · the $782K Python peak did not survive broker-realistic MT5 validation</div>
+    <div class="evidence-verdict">v3.22 is the first cross-model research candidate · one $109K flip from five campaigns · not forward-approved</div>
   </div>
   <div class="evidence-tabs" id="roboTabs"></div>
   <div id="roboModel"></div>
@@ -230,6 +233,7 @@ render();
   const fmtEvidence = value => value == null ? '—' : Number(value).toLocaleString('en-US', {
     maximumFractionDigits:2
   });
+  const pctEvidence = value => value == null ? '—' : `${(Number(value) * 100).toFixed(1)}%`;
 
   window.selectRoboModel = id => {
     active = id;
@@ -241,6 +245,20 @@ render();
     const summary = current.summary;
     const first = current.rows[0];
     const last = current.rows[current.rows.length - 1];
+    const analysis = current.id === 'v3.22-robo' ? evidence.v322Analysis : null;
+    const campaignMc = analysis?.monteCarloCampaignAttempts;
+    const calendarMc = analysis?.monteCarloCalendarWeeks;
+    const analysisMarkup = analysis ? `
+      <div class="analysis-note">
+        <strong>What this evidence actually means:</strong>
+        Across 12 qualifying campaign attempts, resampling the five observed setups and both MT5 models produced
+        ${pctEvidence(campaignMc.probabilityAtLeastOneFlip)} odds of at least one $100K+ result, but
+        ${campaignMc.expectedLosingAttempts.toFixed(1)} expected losing attempts and
+        ${pctEvidence(campaignMc.probabilityMoreThanFourLosses)} odds of more than four losses.
+        Across 12 ordinary calendar weeks, the observed flip chance was only
+        ${pctEvidence(calendarMc.probabilityAtLeastOneFlip)} because setups were rare.
+        Five campaigns are not enough to claim reliability or a low blow-up rate.
+      </div>` : '';
     document.getElementById('roboContext').textContent =
       `${evidence.broker} · ${moneyEvidence(evidence.deposit)} · ${evidence.leverage} · ${first.start} to ${last.endExclusive} · ${summary.windows} independent weekly windows`;
     document.getElementById('roboTabs').innerHTML = evidence.models.map(item =>
@@ -248,28 +266,34 @@ render();
     ).join('');
     document.getElementById('roboModel').innerHTML = `
       <p class="detail"><strong>${current.verdict}</strong><br>${current.description}</p>
+      ${analysisMarkup}
       <div class="evidence-summary">
         <div class="metric"><label>Windows</label><strong>${summary.windows}</strong></div>
         <div class="metric"><label>Campaign weeks</label><strong>${summary.campaignWeeks}</strong></div>
         <div class="metric"><label>No trade</label><strong>${summary.noTradeWeeks}</strong></div>
         <div class="metric"><label>Adds</label><strong>${summary.adds}</strong></div>
-        <div class="metric"><label>Flips</label><strong>${summary.flips}</strong></div>
+        <div class="metric"><label>$100K+ flips</label><strong>${summary.flips}</strong></div>
+        <div class="metric"><label>Losing campaigns</label><strong>${summary.losses}</strong></div>
         <div class="metric"><label>Best final</label><strong>${moneyEvidence(summary.best)}</strong></div>
         <div class="metric"><label>Worst final</label><strong>${moneyEvidence(summary.worst)}</strong></div>
+        <div class="metric"><label>Worst intraday equity</label><strong>${moneyEvidence(summary.worstMinEquity)}</strong></div>
       </div>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Week</th><th>Start</th><th>Outcome</th><th>Campaigns</th><th>Seed lots</th><th>Adds</th><th>Max lots</th><th>Final balance</th><th>Return</th></tr></thead>
+          <thead><tr><th>Week</th><th>Start</th><th>Outcome</th><th>Exit</th><th>Campaigns</th><th>Seed lots</th><th>Adds</th><th>Max lots</th><th>Final balance</th><th>Return</th><th>Min equity</th><th>Min margin</th></tr></thead>
           <tbody>${current.rows.map(row => `<tr>
             <td>${row.week}</td>
             <td>${row.start}</td>
             <td><span class="status ${row.classification}">${row.classification.replaceAll('_',' ')}</span></td>
+            <td>${row.exitReason?.replaceAll('_',' ') || '—'}</td>
             <td>${row.campaigns}</td>
             <td>${fmtEvidence(row.seedLots)}</td>
             <td>${row.addCount}</td>
             <td>${fmtEvidence(row.maxOpenLots)}</td>
             <td>${moneyEvidence(row.finalBalance)}</td>
             <td>${fmtEvidence(row.returnPct)}%</td>
+            <td>${row.minEquity == null ? '—' : moneyEvidence(row.minEquity)}</td>
+            <td>${row.minMarginLevel == null ? '—' : `${fmtEvidence(row.minMarginLevel)}%`}</td>
           </tr>`).join('')}</tbody>
         </table>
       </div>`;
