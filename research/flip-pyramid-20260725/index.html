@@ -92,7 +92,7 @@
       <h2>RoboForex MT5 Weekly Evidence</h2>
       <div class="sub" id="roboContext"></div>
     </div>
-    <div class="evidence-verdict">v3.22 is the first cross-model research candidate · one $109K flip from five campaigns · not forward-approved</div>
+    <div class="evidence-verdict">v3.24 is the first $200K+ cross-model candidate · $242.8K real ticks / $255.1K stress · isolated demo next</div>
   </div>
   <div class="evidence-tabs" id="roboTabs"></div>
   <div id="roboModel"></div>
@@ -245,14 +245,16 @@ render();
     const summary = current.summary;
     const first = current.rows[0];
     const last = current.rows[current.rows.length - 1];
-    const analysis = current.id === 'v3.22-robo' ? evidence.v322Analysis : null;
+    const analysis = current.id === 'v3.24-robo'
+      ? evidence.v324Analysis
+      : (current.id === 'v3.22-robo' ? evidence.v322Analysis : null);
     const campaignMc = analysis?.monteCarloCampaignAttempts;
     const calendarMc = analysis?.monteCarloCalendarWeeks;
     const analysisMarkup = analysis ? `
       <div class="analysis-note">
         <strong>What this evidence actually means:</strong>
         Across 12 qualifying campaign attempts, resampling the five observed setups and both MT5 models produced
-        ${pctEvidence(campaignMc.probabilityAtLeastOneFlip)} odds of at least one $100K+ result, but
+        ${pctEvidence(campaignMc.probabilityAtLeastOneFlip)} odds of at least one ${moneyEvidence(analysis.targetBalance ?? 100000)} result, but
         ${campaignMc.expectedLosingAttempts.toFixed(1)} expected losing attempts and
         ${pctEvidence(campaignMc.probabilityMoreThanFourLosses)} odds of more than four losses.
         Across 12 ordinary calendar weeks, the observed flip chance was only
@@ -272,7 +274,7 @@ render();
         <div class="metric"><label>Campaign weeks</label><strong>${summary.campaignWeeks}</strong></div>
         <div class="metric"><label>No trade</label><strong>${summary.noTradeWeeks}</strong></div>
         <div class="metric"><label>Adds</label><strong>${summary.adds}</strong></div>
-        <div class="metric"><label>$100K+ flips</label><strong>${summary.flips}</strong></div>
+        <div class="metric"><label>${moneyEvidence(current.flipThreshold)}+ flips</label><strong>${summary.flips}</strong></div>
         <div class="metric"><label>Losing campaigns</label><strong>${summary.losses}</strong></div>
         <div class="metric"><label>Best final</label><strong>${moneyEvidence(summary.best)}</strong></div>
         <div class="metric"><label>Worst final</label><strong>${moneyEvidence(summary.worst)}</strong></div>
