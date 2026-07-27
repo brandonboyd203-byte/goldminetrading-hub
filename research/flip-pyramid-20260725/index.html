@@ -7,6 +7,7 @@
   <title>Goldmine Flip Pyramid Visual Replay</title>
   <script src="./lightweight-charts.standalone.production.js"></script>
   <script src="./robo_weekly_evidence.js"></script>
+  <script src="./intraday_v050_evidence.js"></script>
   <style>
     :root { color-scheme: dark; --bg:#070909; --panel:#0e1211; --line:#242c29;
       --muted:#8d9994; --text:#edf5f1; --green:#35d69a; --red:#ff6678; --gold:#f0c45a;
@@ -54,6 +55,18 @@
     .analysis-note { border:1px solid #6b5720; background:#18150c; color:#e7d69e; padding:11px 12px;
       border-radius:6px; margin:0 0 12px; }
     .analysis-note strong { color:var(--gold); }
+    .intraday-evidence { padding:18px 24px 22px; border-bottom:1px solid var(--line); background:#080b0a; }
+    .intraday-evidence h2 { margin:0 0 4px; font-size:19px; }
+    .movement-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:0 0 12px; }
+    .movement-band { border:1px solid var(--line); background:var(--panel); padding:12px; border-radius:6px; }
+    .movement-band h3 { margin:0 0 9px; font-size:15px; }
+    .metric-grid.compact { grid-template-columns:repeat(3,minmax(90px,1fr)); margin:0; }
+    .replay-layout { display:grid; grid-template-columns:300px minmax(0,1fr); gap:12px; min-height:520px; }
+    .replay-list { max-height:660px; overflow:auto; padding-right:4px; }
+    .replay-main { min-width:0; }
+    .replay-main h3 { margin:0 0 10px; }
+    .intraday-chart { height:560px; }
+    .intraday-table { max-height:560px; }
     .status { display:inline-block; padding:3px 6px; border-radius:4px; font-size:11px; font-weight:700; text-transform:uppercase; }
     .status.no_trade { color:var(--muted); background:#151a18; }
     .status.scratch { color:var(--gold); background:#292311; }
@@ -69,6 +82,7 @@
       .model-tabs button,.evidence-tabs button { flex:0 0 auto; white-space:nowrap; }
       .summary-grid,.metric-grid { grid-template-columns:repeat(2,1fr); }
       .evidence { padding:15px 12px 18px; }
+      .intraday-evidence { padding:15px 12px 18px; }
       .evidence-head { display:block; }
       .evidence-verdict { margin-top:8px; font-size:12px; }
       .evidence-summary { grid-template-columns:repeat(2,1fr); }
@@ -78,6 +92,12 @@
       .campaign { min-height:56px; }
       #priceChart { height:390px; }
       #equityChart { height:180px; }
+      .movement-grid { grid-template-columns:1fr; }
+      .metric-grid.compact { grid-template-columns:repeat(2,1fr); }
+      .replay-layout { grid-template-columns:1fr; min-height:0; }
+      .replay-list { display:flex; gap:7px; overflow-x:auto; max-height:none; padding:0 0 6px; }
+      .replay-list .campaign { flex:0 0 230px; }
+      .intraday-chart { height:410px; }
     }
   </style>
 </head>
@@ -96,6 +116,17 @@
   </div>
   <div class="evidence-tabs" id="roboTabs"></div>
   <div id="roboModel"></div>
+</section>
+<section class="intraday-evidence">
+  <div class="evidence-head">
+    <div>
+      <h2>Intraday Flip v0.5 + Metals Entry Research</h2>
+      <div class="sub">RoboForex M15 evidence, fresh weekly account tests, exact trade charts and chronological gold/silver entry research.</div>
+    </div>
+    <div class="evidence-verdict">Research only · two isolated demos · no live-money approval</div>
+  </div>
+  <div class="evidence-tabs" id="intradayTabs"></div>
+  <div id="intradayModel"></div>
 </section>
 <div class="shell">
   <aside>
@@ -320,5 +351,6 @@ render();
   renderRoboEvidence();
 })();
 </script>
+<script src="./intraday_v050_replay.js"></script>
 </body>
 </html>
