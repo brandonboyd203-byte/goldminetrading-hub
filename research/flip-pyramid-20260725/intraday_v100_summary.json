@@ -1,0 +1,66 @@
+{
+  "candidate": "GoldmineIntradayPortfolio_XAU_v1_0",
+  "generatedAt": "2026-07-27",
+  "symbol": "XAUUSD",
+  "timeframe": "M15",
+  "window": {
+    "from": "2025-01-01",
+    "to": "2026-07-14"
+  },
+  "initialBalanceUsd": 5000,
+  "compile": {
+    "errors": 0,
+    "warnings": 0,
+    "sha256": "151B7BFEDDCACF0C47FDC516EC2C0B84C7C5671F88BE25EF12EB252AB6CD1E85"
+  },
+  "trades": {
+    "total": 119,
+    "wins": 65,
+    "losses": 54,
+    "winRatePct": 54.62
+  },
+  "presets": [
+    {
+      "riskPct": 0.5,
+      "realTicksFinalUsd": 5635.51,
+      "m1FinalUsd": 5635.55,
+      "profitFactor": 2.03
+    },
+    {
+      "riskPct": 15,
+      "realTicksFinalUsd": 173686.08,
+      "m1FinalUsd": 173785.17,
+      "profitFactor": 1.69,
+      "peakNormalizedClosedDrawdownPct": 33.03,
+      "minimumClosedEquityUsd": 4282.95
+    },
+    {
+      "riskPct": 20,
+      "realTicksFinalUsd": 419312.90,
+      "m1FinalUsd": 420325.30,
+      "profitFactor": 1.57,
+      "peakNormalizedClosedDrawdownPct": 42.44,
+      "minimumClosedEquityUsd": 4054.50
+    }
+  ],
+  "freshWeekGate": {
+    "activeWeeks": 57,
+    "profitableWeeks": 37,
+    "losingWeeks": 20,
+    "blownWeeks": 0,
+    "weeksEndingAtOrAbove10000": 0,
+    "best15PctFinalUsd": 7544.12,
+    "best20PctFinalUsd": 8543.84
+  },
+  "targetVerdict": {
+    "retained": "200 pips / 2R",
+    "unseen2026ProfitFactor": 1.55,
+    "rejected": [
+      "250 pips / 2.5R",
+      "300 pips / 3R",
+      "400 pips / 4R",
+      "500 pips / 5R"
+    ]
+  },
+  "verdict": "Research-forward candidate only. Strong 18-month compounding result; weekly 5k-to-50k objective not proven."
+}
