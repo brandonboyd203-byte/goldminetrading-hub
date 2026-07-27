@@ -128,6 +128,45 @@
   <div class="evidence-tabs" id="intradayTabs"></div>
   <div id="intradayModel"></div>
 </section>
+<section class="evidence">
+  <div class="evidence-head">
+    <div>
+      <h2>M5 Entry Research Cycle</h2>
+      <div class="sub">Fresh RoboForex XAUUSD M5 data · 2025-02-21 to 2026-07-27 · realistic spread/slippage · chronological partitions</div>
+    </div>
+    <div class="evidence-verdict">No new standalone pass · v0.5 + London OR30 is the leading research candidate at 21/30 unseen campaigns</div>
+  </div>
+  <div class="analysis-note">
+    <strong>Strongest combined evidence:</strong>
+    v0.5 plus London OR30 produced PF 1.93 development, 2.23 validation and 1.89 unseen.
+    It covered 15 unseen weeks with 21 campaign-days. The edge is promising, but it
+    is not yet proven because the untouched sample is below the required 30 campaigns.
+    No lot-size increase, compile or attachment was permitted from these results.
+  </div>
+  <div class="evidence-summary">
+    <div class="metric"><label>Fresh M5 bars</label><strong>100,017</strong></div>
+    <div class="metric"><label>Entry families</label><strong>7</strong></div>
+    <div class="metric"><label>Standalone passes</label><strong>0</strong></div>
+    <div class="metric"><label>Best unseen PF</label><strong>2.32</strong></div>
+    <div class="metric"><label>Best portfolio PF</label><strong>1.89</strong></div>
+    <div class="metric"><label>Unseen campaigns</label><strong>21 / 30</strong></div>
+    <div class="metric"><label>Unseen active weeks</label><strong>15</strong></div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Test</th><th>Thesis</th><th>Dev PF</th><th>Validation PF</th><th>Unseen PF</th><th>Full PF</th><th>Unseen trades</th><th>Activity</th><th>Ruling</th></tr></thead>
+      <tbody>
+        <tr><td>0.28</td><td>Sweep + CHoCH/FVG</td><td>0.87</td><td>0.80</td><td>0.82</td><td>0.85</td><td>20</td><td>41.4%</td><td><span class="status loss">Falsified</span></td></tr>
+        <tr><td>0.29</td><td>London impulse + VWAP</td><td>1.39</td><td>1.40</td><td>1.32</td><td>1.37</td><td>19</td><td>48.3%</td><td><span class="status no_trade">Near miss</span></td></tr>
+        <tr><td>0.30</td><td>London OR30 breakout</td><td>1.34</td><td>2.50</td><td>2.32</td><td>2.01</td><td>9</td><td>31.0%</td><td><span class="status no_trade">Sparse</span></td></tr>
+        <tr><td>0.32</td><td>Logistic direction model</td><td>Selection 0.09</td><td>1.87</td><td>1.46</td><td>1.51</td><td>30</td><td>58.6%</td><td><span class="status loss">Falsified</span></td></tr>
+        <tr><td>0.33</td><td>VWAP exhaustion</td><td>0.82</td><td>0.83</td><td>0.80</td><td>0.82</td><td>66</td><td>96.6%</td><td><span class="status loss">Falsified</span></td></tr>
+        <tr><td>0.34</td><td>EMA pullback/resume</td><td>0.74</td><td>0.92</td><td>0.95</td><td>0.85</td><td>85</td><td>100.0%</td><td><span class="status loss">Falsified</span></td></tr>
+        <tr><td>0.35</td><td>v0.5 + London OR30</td><td>1.93</td><td>2.23</td><td>1.89</td><td>2.04</td><td>21 days</td><td>15 weeks</td><td><span class="status no_trade">21/30 sample</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 <div class="shell">
   <aside>
     <div class="model-tabs" id="modelTabs"></div>
