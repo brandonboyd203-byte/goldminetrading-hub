@@ -12,6 +12,7 @@
     ["risk5", "5% weekly"],
     ["v05", "94 v0.5 trades"],
     ["matrix", "Gold + silver matrix"],
+    ["theses", "18 thesis families"],
     ["research", "Research charts"],
     ["range", "Range near-miss"],
   ];
@@ -271,6 +272,56 @@
       </div>`;
   }
 
+  function thesisMatrix() {
+    const research = data.thesisResearch;
+    const sorted = [...research.rows].sort((a, b) => {
+      const aFloor = Math.min(
+        a.development.profit_factor || 0,
+        a.unseen.profit_factor || 0,
+      );
+      const bFloor = Math.min(
+        b.development.profit_factor || 0,
+        b.unseen.profit_factor || 0,
+      );
+      if (bFloor !== aFloor) return bFloor - aFloor;
+      return (b.unseen.trades || 0) - (a.unseen.trades || 0);
+    });
+    root.innerHTML = `
+      <div class="analysis-note">
+        <strong>Distinct-thesis result:</strong> ${research.passes} final passes
+        from ${sorted.length} configurations across ${research.families.length}
+        entry families. ${research.pythonPasses} row passed Python first; its
+        corresponding MT5 full-period PF was only 1.24, so it was rejected.
+        The table includes
+        development and unseen evidence so a high recent PF cannot hide a weak
+        older cohort or a tiny sample.
+      </div>
+      <div class="table-wrap intraday-table">
+        <table>
+          <thead><tr><th>Version</th><th>Entry family</th><th>Configuration</th>
+            <th>R:R</th><th>Dev PF</th><th>Dev trades</th><th>Unseen PF</th>
+            <th>Unseen trades</th><th>Unseen activity</th><th>Full PF</th>
+            <th>Full trades</th><th>Full DD (R)</th><th>Verdict</th></tr></thead>
+          <tbody>${sorted.map(row => `<tr>
+            <td>${row.version}</td><td title="${row.model}">${label(row.family)}</td>
+            <td>${label(row.thesis)}</td><td>${number(row.rewardR)}R</td>
+            <td>${number(row.development.profit_factor)}</td>
+            <td>${row.development.trades || 0}</td>
+            <td>${number(row.unseen.profit_factor)}</td>
+            <td>${row.unseen.trades || 0}</td>
+            <td>${pct((row.unseen.active_week_pct || 0) * 100)}</td>
+            <td>${number(row.full.profit_factor)}</td>
+            <td>${row.full.trades || 0}</td>
+            <td>${number(row.full.max_closed_drawdown_r)}</td>
+            <td><span class="status ${row.passed ? "profit" : "loss"}">${
+              row.passed ? "FINAL PASS" :
+              row.pythonPassed ? "MT5 FAIL" : "PYTHON REJECT"
+            }</span></td>
+          </tr>`).join("")}</tbody>
+        </table>
+      </div>`;
+  }
+
   function research() {
     const row = data.researchReplays[researchIndex];
     root.innerHTML = `
@@ -369,6 +420,7 @@
     if (active === "risk5") weekly("risk5");
     if (active === "v05") v05Replay();
     if (active === "matrix") matrix();
+    if (active === "theses") thesisMatrix();
     if (active === "research") research();
     if (active === "range") rangeResearch();
   }
