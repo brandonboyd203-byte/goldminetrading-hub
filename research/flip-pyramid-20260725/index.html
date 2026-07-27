@@ -147,6 +147,47 @@
     1.17, 0.88 and 1.03. Bigger historical winners did not survive the
     current-regime check.
   </div>
+  <div class="analysis-note">
+    <strong>Path-risk audit:</strong>
+    50,000 deterministic bootstrap paths were tested per configuration.
+    This reorders the observed 119 trades and is not independent forward
+    evidence. It measures how sensitive the result is to trade order and
+    additional costs.
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Risk</th><th>Extra cost</th><th>Median final</th><th>P10 final</th><th>P90 final</th><th>Hit $100k</th><th>Hit $200k</th><th>Below $2.5k</th><th>P90 DD</th></tr></thead>
+      <tbody>
+        <tr><td>15%</td><td>0%</td><td>$173,557</td><td>$43,104</td><td>$698,560</td><td>73.5%</td><td>49.2%</td><td>1.0%</td><td>52.3%</td></tr>
+        <tr><td>15%</td><td>0.2% / trade</td><td>$137,106</td><td>$33,777</td><td>-</td><td>66.2%</td><td>40.7%</td><td>1.4%</td><td>54.4%</td></tr>
+        <tr><td>20%</td><td>0%</td><td>$418,516</td><td>$65,958</td><td>$2,656,000</td><td>87.6%</td><td>73.9%</td><td>3.5%</td><td>64.2%</td></tr>
+        <tr><td>20%</td><td>0.2% / trade</td><td>$330,203</td><td>$51,401</td><td>-</td><td>83.7%</td><td>68.7%</td><td>4.2%</td><td>65.8%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="analysis-note" style="margin-top:12px">
+    <strong>Time-to-flip finding:</strong>
+    no contiguous 10-trade start reached $20,000. At 20% risk, 20% of
+    20-trade starts reached $20,000; 72.5% of 40-trade starts did. The
+    evidence supports high-risk compounding over a sequence of trades, not
+    a dependable one-week flip.
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Risk</th><th>Green months</th><th>Red months</th><th>Longest loss run</th><th>2025 PF</th><th>2026 PF</th><th>2026 trades</th><th>Finding</th></tr></thead>
+      <tbody>
+        <tr><td>15%</td><td>14</td><td>5</td><td>5</td><td>2.05</td><td>1.38</td><td>20</td><td>Forward demo justified</td></tr>
+        <tr><td>20%</td><td>13</td><td>6</td><td>5</td><td>1.89</td><td>1.33</td><td>20</td><td>Higher drawdown</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="analysis-note" style="margin-top:12px">
+    <strong>Regime concentration:</strong>
+    most of the explosive growth occurred in September-October 2025.
+    The 2026 sample is still above PF 1.3 but contains only 20 trades and
+    finished with losing June and July buckets. A live demo must survive
+    both trending and non-trending conditions.
+  </div>
 </section>
 <section class="evidence">
   <div class="evidence-head">
