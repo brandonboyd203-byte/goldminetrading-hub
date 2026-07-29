@@ -709,15 +709,15 @@
     display: flex; align-items: center; justify-content: center; gap: 14px;
     flex-wrap: wrap; text-align: center;
   ">
-    <span id="lb-title" style="font-size:13px; color:#3ddc97; font-weight:800; letter-spacing:0.06em; text-transform:uppercase;">⏳ Final Trial Window</span>
-    <span id="lb-sub" style="font-size:13px; color:#c9d2ce; font-weight:500;">Final trial window: start by 31 July. All free-trial access ends 1 August 2026.</span>
+    <span id="lb-title" style="font-size:13px; color:#3ddc97; font-weight:800; letter-spacing:0.06em; text-transform:uppercase;">Free Scanner — Live Now</span>
+    <span id="lb-sub" style="font-size:13px; color:#c9d2ce; font-weight:500;">Scan live markets, read market context and use read-only charts free forever.</span>
     <span id="countdown-badge" style="
       background: rgba(61,220,151,0.14); border: 1px solid rgba(61,220,151,0.34);
       border-radius: 100px; padding: 3px 14px;
       font-size: 12px; font-weight: 800; color: #3ddc97; letter-spacing: 0.05em;
       white-space: nowrap;
-    ">Start before 1 August</span>
-    <span id="lb-tail" style="font-size:12px; color:#8f9a95;">No card needed to start.</span>
+    ">$0 forever</span>
+    <span id="lb-tail" style="font-size:12px; color:#8f9a95;">No card. No broker connection.</span>
   </div>
   </div>
 
@@ -735,13 +735,13 @@
         and copy trades. <strong>Your full trading desk in your pocket.</strong>
       </p>
       <div class="hero-actions">
-        <a href="https://www.goldminetrading.store" target="_blank" class="btn-primary trial-cta">Start Trial Before 1 August →</a>
+        <a href="https://www.goldminetrading.store" target="_blank" class="btn-primary">Open the Free Scanner →</a>
         <a href="#features" class="btn-ghost">See Features</a>
       </div>
       <div class="hero-trust">
-        <div class="trust-item"><span class="trust-icon">✓</span> 3-day free demo · all trials end 1 Aug</div>
-        <div class="trust-item"><span class="trust-icon">⚡</span> Broker-direct live charts</div>
-        <div class="trust-item"><span class="trust-icon">🔔</span> TP/SL push alerts</div>
+        <div class="trust-item"><span class="trust-icon">✓</span> Free forever · no card</div>
+        <div class="trust-item"><span class="trust-icon">⚡</span> Live scanner + market context</div>
+        <div class="trust-item"><span class="trust-icon">📈</span> Read-only live charts</div>
       </div>
     </div>
 
@@ -1318,7 +1318,22 @@
     <div class="section-tag">Simple Pricing</div>
     <h2>Simple, transparent pricing.</h2>
     <p>Pick the plan that fits your trading style. Monthly or yearly. Cancel anytime.</p>
-    <p style="max-width:760px;margin:12px auto 32px;color:#f2c96d;font-weight:800;">Free-trial registrations close 31 July 2026. All free-trial access ends 1 August 2026. From 1 August, a paid subscription is required.</p>
+    <p style="max-width:760px;margin:12px auto 24px;color:#3ddc97;font-weight:800;">Start with the Free Scanner forever. Upgrade only when you want broker connection, trade automation or copying.</p>
+    <div class="price-card pro" style="max-width:760px;margin:0 auto 28px;text-align:left;">
+      <div class="popular-badge">NO CARD</div>
+      <div class="price-plan pro">Free Scanner</div>
+      <div class="price-amount pro">$0</div>
+      <div class="price-period">forever · shared market data · near-zero account cost</div>
+      <ul class="price-feats p" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
+        <li>Live scored market setups</li>
+        <li>Market context and news</li>
+        <li>Read-only charts + drawings</li>
+        <li>Public track record</li>
+        <li class="off">Broker connection and execution</li>
+        <li class="off">Auto-trade, copier and real journal</li>
+      </ul>
+      <a href="https://www.goldminetrading.store" target="_blank" class="price-cta pro">Use the Free Scanner →</a>
+    </div>
     <div class="pricing-grid">
 
       <div class="price-card">
@@ -1487,24 +1502,6 @@
       </div>
     </div>
   </section>
-
-  <script>
-    (function() {
-      var cutoff = new Date('2026-08-01T00:00:00+08:00');
-      if (Date.now() < cutoff.getTime()) return;
-      var title = document.getElementById('lb-title');
-      var sub = document.getElementById('lb-sub');
-      var badge = document.getElementById('countdown-badge');
-      var tail = document.getElementById('lb-tail');
-      if (title) title.textContent = 'PAID ACCESS ONLY';
-      if (sub) sub.textContent = 'The free-trial offer ended 1 August 2026. Choose a paid plan to access Goldmine Sync.';
-      if (badge) badge.textContent = 'View paid plans';
-      if (tail) tail.textContent = 'No new free trials.';
-      document.querySelectorAll('.trial-cta').forEach(function(link) {
-        link.textContent = 'View Paid Plans →';
-      });
-    })();
-  </script>
 
   <script>
     (function() {
